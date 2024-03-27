@@ -1,0 +1,4 @@
+add-migration InitialCreate -p IntroduccionCleanArchitecture.RepositoryEFCore 
+			    -c Context 
+			    -o Migrations 
+			    -s IntroduccionCleanArchitecture.RepositoryEFCore
