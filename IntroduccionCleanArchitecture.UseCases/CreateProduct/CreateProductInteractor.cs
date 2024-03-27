@@ -22,6 +22,14 @@ namespace IntroduccionCleanArchitecture.UseCases.CreateProduct
         public async Task Handle(CreateProductDTO createProductDTO)
         {
             Product newProduct = new Product { Name = createProductDTO.ProductName };
+            _productRepository.CreateProduct(newProduct);
+            await _unitOfWork.Savechanges();
+            await _createProductOutputPort.Handle(new ProductDTO
+            {
+                Id = newProduct.Id,
+                Name = newProduct.Name
+
+            });
         }
     }
 }
