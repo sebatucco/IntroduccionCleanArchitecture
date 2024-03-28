@@ -17,7 +17,7 @@ namespace IntroduccionCleanArchitecture.RepositoryEFCore
         // metodo de extension de IServiceCollection y permite leer la configuracion
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<Context>(options => options.UseSqlServer(configuration.GetConnectionString("ConnectionString")));
+            services.AddDbContext<Context>(options => options.UseSqlServer(configuration.GetConnectionString("IntroduccionCleanArchitectureConnectionString")));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
